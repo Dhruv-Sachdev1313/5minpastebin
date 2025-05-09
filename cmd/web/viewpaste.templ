@@ -2,7 +2,7 @@ package web
 
 templ ViewPaste(content string) {
 	@Base() {
-		<div class="bg-white border border-gray-300 rounded p-6 whitespace-pre-wrap">
+		<div class="w-full md:w-3/4 max-w-4xl mx-auto mt-6 p-4 bg-white border border-gray-300 rounded-md shadow-sm font-mono text-sm whitespace-pre-wrap overflow-auto">
 			{ content }
 		</div>
 	}
