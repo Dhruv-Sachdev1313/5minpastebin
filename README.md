@@ -1,53 +1,120 @@
-# Project 5minpastebin.com
+# 🕔 5minpastebin.com
 
-One Paragraph of project description goes here
+**A fast, ephemeral Pastebin — no configs, no accounts, no nonsense (or is it?)**
 
-## Getting Started
+Paste your code or text and get a link that self-destructs in 5 minutes. Designed for simplicity, speed, and privacy. Ideal for quick sharing without worrying about cleanup or storage.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+![Screenshot](https://your-screenshot-link-if-any.png)
 
-## MakeFile
+---
 
-Run build make command with tests
+## 🚀 Features
+
+- ⏳ Pasted content expires after 5 minutes.
+- 🧼 No signups, no settings, no clutter.
+- 🔗 Shareable, one-time-use paste links.
+- 🌐 Clean and minimal web UI.
+- ⚡ Built with Go, HTMX, Templ, and Tailwind CSS.
+
+---
+
+## 🛠️ Getting Started
+
+These instructions will help you run `5minpastebin.com` locally for development and testing.
+
+### 📦 Prerequisites
+
+- Go 1.24+
+- Docker (for local redis)
+- Make
+
+---
+
+## 📂 Clone the Repo
+
 ```bash
-make all
-```
+git clone https://github.com/YOUR_USERNAME/5minpastebin.com.git
+cd 5minpastebin.com
 
-Build the application
-```bash
-make build
-```
+## 🧰 Makefile Commands
 
-Run the application
-```bash
-make run
-```
-Create DB container
-```bash
-make docker-run
-```
+### Build, Run, Test
 
-Shutdown DB Container
-```bash
-make docker-down
-```
+| Command            | Description                          |
+|--------------------|--------------------------------------|
+| `make all`         | Run tests and build the project      |
+| `make build`       | Build the application binary         |
+| `make run`         | Run the server locally               |
+| `make watch`       | Watch for file changes and reload    |
+| `make test`        | Run unit tests                       |
+| `make itest`       | Run integration tests                |
+| `make clean`       | Clean up compiled binary             |
 
-DB Integrations Test:
-```bash
-make itest
-```
+### Docker for DB
 
-Live reload the application:
-```bash
-make watch
-```
+| Command              | Description                      |
+|----------------------|----------------------------------|
+| `make docker-run`    | Start DB container (PostgreSQL)  |
+| `make docker-down`   | Stop DB container                |
 
-Run the test suite:
-```bash
-make test
-```
+---
 
-Clean up binary from the last build:
-```bash
-make clean
-```
+## 🧪 Example
+
+1. Paste any code/text in the home page.
+2. Get a unique link like:
+   `https://5minpastebin.com/a1b2c3`
+3. That paste will auto-expire in 5 minutes.
+
+---
+
+## 🧑‍💻 Tech Stack
+
+- **Go** – Backend
+- **HTMX** – Dynamic frontend
+- **Templ** – HTML templates with Go
+- **Tailwind CSS** – Styles
+- **Redis** – Storage
+
+---
+
+## 🔒 Privacy
+
+Your data is never stored permanently. All pastes are deleted after 5 minutes — automatically. There is no logging, no cookies, and no tracking.
+
+---
+
+## 🌐 Live Demo
+
+➡️ [https://5minpastebin.com](https://5minpastebin.com) *(Coming Soon)*
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, open an issue first to discuss what you’d like to change.
+
+Please make sure to update tests as appropriate.
+
+---
+
+## 📜 License
+
+This project is licensed under a custom **Non-Commercial License**.
+
+You are free to use, modify, and deploy it for personal or educational use.
+**Commercial use (including offering it as a hosted service) is strictly prohibited.**
+
+For commercial licenses, contact the author.
+
+---
+
+## ⭐️ Show your support
+
+If you like this project, consider giving it a ⭐️ on GitHub!
+
+---
+
+## 🔗 Follow the Dev
+
+Made with ❤️ by [@dhruvsachdev](https://github.com/dhruvsachdev)
