@@ -59,6 +59,7 @@ func (s *Server) serveContentWithIdHandler(c echo.Context) error {
 		if err != nil {
 			return echo.NewHTTPError(http.StatusInternalServerError, "Rendering failed")
 		}
+		return nil
 	}
 	component := web.ViewPaste(content)
 	fmt.Print(content)
@@ -68,6 +69,5 @@ func (s *Server) serveContentWithIdHandler(c echo.Context) error {
 		fmt.Print(err)
 		return echo.NewHTTPError(http.StatusInternalServerError, "Rendering failed")
 	}
-
 	return nil
 }
