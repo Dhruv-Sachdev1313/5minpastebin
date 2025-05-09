@@ -118,4 +118,4 @@ If you like this project, consider giving it a ⭐️ on GitHub!
 
 ## 🔗 Follow the Dev
 
-Made with ❤️ by [@dhruvsachdev](https://github.com/Dhruv-Sachdev1313)
+Made with ❤️ by [@Dhruv-Sachdev1313](https://github.com/Dhruv-Sachdev1313)
