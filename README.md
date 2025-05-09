@@ -35,6 +35,7 @@ These instructions will help you run `5minpastebin.com` locally for development 
 ```bash
 git clone https://github.com/YOUR_USERNAME/5minpastebin.com.git
 cd 5minpastebin.com
+```
 
 ## 🧰 Makefile Commands
 
