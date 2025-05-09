@@ -6,11 +6,24 @@ templ Base() {
 		<head>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width,initial-scale=1"/>
-			<title>Go Blueprint Hello</title>
+			<title>5minpastebin.com - Open Source Pastebin</title>
 			<link href="assets/css/output.css" rel="stylesheet"/>
 			<script src="assets/js/htmx.min.js"></script>
 		</head>
 		<body class="bg-gray-100">
+			<header class="flex items-center justify-between p-4 bg-orange-500 text-white shadow">
+				<a href="/" class="font-bold text-xl hover:underline">5minpastebin.com</a>
+				<a href="https://github.com/Dhruv-Sachdev1313/5minpastebin.com" target="_blank" class="text-sm hover:underline flex items-center gap-1">
+					<svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path
+							fill-rule="evenodd"
+							clip-rule="evenodd"
+							d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.48 0-.23-.01-.99-.01-1.8-2.78.61-3.37-1.38-3.37-1.38-.45-1.18-1.1-1.49-1.1-1.49-.9-.63.07-.62.07-.62 1 .07 1.52 1.06 1.52 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.15-4.56-5.12 0-1.13.39-2.06 1.03-2.79-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.07a9.3 9.3 0 0 1 5 0c1.9-1.35 2.75-1.07 2.75-1.07.55 1.4.2 2.44.1 2.7.64.73 1.03 1.66 1.03 2.79 0 3.98-2.34 4.85-4.57 5.1.36.32.68.95.68 1.92 0 1.38-.01 2.5-.01 2.84 0 .27.18.59.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"
+						></path>
+					</svg>
+					GitHub ↗
+				</a>
+			</header>
 			<main class="max-w-sm mx-auto p-4">
 				{ children... }
 			</main>

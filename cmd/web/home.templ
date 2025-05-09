@@ -1,0 +1,56 @@
+package web
+
+templ HomeTextArea() {
+	@Base() {
+		<div class="mb-4 text-center">
+			<h1 class="text-2xl font-bold mb-2">Open Source Pastebin</h1>
+			<p class="text-gray-600">No login needed. Paste lives for 5 minutes. Built with ❤️ using Go, HTMX, Templ.</p>
+		</div>
+		<form hx-post="/create_link" method="POST" hx-target="#link-container" class="space-y-4">
+			<textarea
+				class="w-full h-40 p-4 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
+				id="content"
+				name="content"
+				required
+				placeholder="Paste something here..."
+			></textarea>
+			<button
+				type="submit"
+				class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded transition"
+			>
+				Generate Link
+			</button>
+		</form>
+		<div id="link-container" class="mt-6"></div>
+	}
+}
+
+templ Link(link string) {
+	<div class="bg-green-100 p-4 shadow-md rounded-lg flex items-center justify-between gap-4">
+		<input type="text" readonly value={ link } id="generatedLink" class="flex-1 bg-transparent focus:outline-none"/>
+		<button
+			onclick="navigator.clipboard.writeText(document.getElementById('generatedLink').value)"
+			class="bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded text-sm"
+		>
+			Copy
+		</button>
+	</div>
+}
+
+templ NotFoundPage() {
+	@Base() {
+		<div class="text-center mt-10">
+			<h2 class="text-3xl font-bold text-red-600 mb-4">404 - Paste Not Found</h2>
+			<p class="text-gray-600 mb-6">Either the paste expired (after 5 minutes) or the link is invalid.</p>
+			<a href="/" class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded">Go to Homepage</a>
+		</div>
+	}
+}
+
+templ ViewPaste(content string) {
+	@Base() {
+		<div class="bg-white border border-gray-300 rounded p-6 whitespace-pre-wrap">
+			{ content }
+		</div>
+	}
+}
