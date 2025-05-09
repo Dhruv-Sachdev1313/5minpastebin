@@ -6,11 +6,11 @@ package database
 // 	"testing"
 
 // 	"github.com/testcontainers/testcontainers-go"
-// 	"github.com/testcontainers/testcontainers-go/modules/mongodb"
+// 	"github.com/testcontainers/testcontainers-go/modules/redis"
 // )
 
-// func mustStartMongoContainer() (func(context.Context, ...testcontainers.TerminateOption) error, error) {
-// 	dbContainer, err := mongodb.Run(context.Background(), "mongo:latest")
+// func mustStartredisContainer() (func(context.Context, ...testcontainers.TerminateOption) error, error) {
+// 	dbContainer, err := redis.Run(ctx context.Context, img string, opts ...testcontainers.ContainerCustomizer)
 // 	if err != nil {
 // 		return nil, err
 // 	}

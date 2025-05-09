@@ -13,6 +13,8 @@ import (
 
 type Service interface {
 	Health() map[string]string
+	SetKeyWithExpiration(string, string) error
+	GetData(string) (string, error)
 }
 
 type service struct {
@@ -48,4 +50,18 @@ func (s *service) Health() map[string]string {
 	return map[string]string{
 		"message": "It's healthy",
 	}
+}
+
+func (s *service) SetKeyWithExpiration(key string, value string) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	defer cancel()
+	status := s.redis.SetEx(ctx, key, value, time.Minute*5)
+	return status.Err()
+}
+
+func (s *service) GetData(key string) (string, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	defer cancel()
+	cmd := s.redis.Get(ctx, key)
+	return cmd.Result()
 }
