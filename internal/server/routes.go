@@ -2,7 +2,6 @@ package server
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 
@@ -54,11 +53,21 @@ func (s *Server) createLinkHandler(c echo.Context) error {
 
 func (s *Server) serveContentWithIdHandler(c echo.Context) error {
 	url_id := c.Param("id")
-	content, error := s.redis.GetData(url_id)
-	if error != nil {
-		log.Print(error)
-		//redener 404 page
+	content, err := s.redis.GetData(url_id)
+	if err != nil {
+		err = web.NotFoundPage().Render(c.Request().Context(), c.Response().Writer)
+		if err != nil {
+			return echo.NewHTTPError(http.StatusInternalServerError, "Rendering failed")
+		}
 	}
-	fmt.Println(content)
+	component := web.ViewPaste(content)
+	fmt.Print(content)
+	err = component.Render(c.Request().Context(), c.Response().Writer)
+	if err != nil {
+		fmt.Print("Error happed")
+		fmt.Print(err)
+		return echo.NewHTTPError(http.StatusInternalServerError, "Rendering failed")
+	}
+
 	return nil
 }
