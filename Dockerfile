@@ -1,5 +1,5 @@
 FROM golang:1.24-bookworm AS build
-RUN apk add --no-cache curl
+RUN apt-get update && apt-get install -y curl
 
 WORKDIR /app
 
