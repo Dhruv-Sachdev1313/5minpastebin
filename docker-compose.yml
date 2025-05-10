@@ -6,39 +6,27 @@ services:
       target: prod
     restart: unless-stopped
     ports:
-      - ${PORT}:${PORT}
-    environment:
-      APP_ENV: ${APP_ENV}
-      PORT: ${PORT}
-      BLUEPRINT_DB_HOST: ${BLUEPRINT_DB_HOST}
-      BLUEPRINT_DB_PORT:  ${BLUEPRINT_DB_PORT}
-      BLUEPRINT_DB_USERNAME: ${BLUEPRINT_DB_USERNAME}
-      BLUEPRINT_DB_ROOT_PASSWORD: ${BLUEPRINT_DB_ROOT_PASSWORD}
+      - 8080:8080
+    env_file:
+      - .env
     depends_on:
-      mongo_bp:
+      redis:
         condition: service_healthy
     networks:
       - blueprint
-  mongo_bp:
-    image: mongo:latest
+  redis:
+    image: redis:7-alpine
     restart: unless-stopped
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${BLUEPRINT_DB_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${BLUEPRINT_DB_ROOT_PASSWORD}
     ports:
-      - "${BLUEPRINT_DB_PORT}:27017"
-    volumes:
-      - mongo_volume_bp:/data/db
+      - "6379:6379"
     healthcheck:
-      test: ["CMD","mongosh", "--eval", "db.adminCommand('ping')"]
+      test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 5s
       retries: 3
-      start_period: 15s
+      start_period: 10s
     networks:
       - blueprint
 
-volumes:
-  mongo_volume_bp:
 networks:
   blueprint:
