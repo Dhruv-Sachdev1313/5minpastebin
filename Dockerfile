@@ -13,7 +13,7 @@ RUN go install github.com/a-h/templ/cmd/templ@latest && \
     chmod +x tailwindcss && \
     ./tailwindcss -i cmd/web/styles/input.css -o cmd/web/assets/css/output.css
 
-RUN go build -o main cmd/api/main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o main cmd/api/main.go
 
 FROM alpine:3.20.1 AS prod
 WORKDIR /app
