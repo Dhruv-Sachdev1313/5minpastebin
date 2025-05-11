@@ -3,8 +3,7 @@
 **A fast, ephemeral Pastebin — no configs, no accounts, no nonsense (or is it?)**
 
 Paste your code or text and get a link that self-destructs in 5 minutes. Designed for simplicity, speed, and privacy. Ideal for quick sharing without worrying about cleanup or storage.
-
-![Screenshot](https://your-screenshot-link-if-any.png)
+Use this at [5minpastebin.com](https://5minpastebin.com)
 
 ---
 
