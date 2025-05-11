@@ -1,4 +1,4 @@
-# 🕔 5minpastebin.com
+# 🕔 [5minpastebin.com](https://5minpastebin.com)
 
 **A fast, ephemeral Pastebin — no configs, no accounts, no nonsense (or is it?)**
 
@@ -87,7 +87,7 @@ Your data is never stored permanently. All pastes are deleted after 5 minutes �
 
 ## 🌐 Live Demo
 
-➡️ [https://5minpastebin.com](https://5minpastebin.com) *(Coming Soon)*
+➡️ [https://5minpastebin.com](https://5minpastebin.com)
 
 ---
 
