@@ -2,8 +2,16 @@ package web
 
 templ ViewPaste(content string) {
 	@Base() {
-		<div class="w-full md:w-3/4 max-w-4xl mx-auto mt-6 p-4 bg-white border border-gray-300 rounded-md shadow-sm font-mono text-sm whitespace-pre-wrap overflow-auto">
-			{ content }
+		<div class="w-full md:w-3/4 max-w-4xl mx-auto mt-6 bg-white border border-gray-300 rounded-md shadow-sm overflow-hidden">
+			<div class="flex justify-end border-b border-gray-200 bg-gray-50 p-3">
+				<button
+					onclick="navigator.clipboard.writeText(document.getElementById('pasteContent').textContent).then(() => { this.textContent = 'Copied!'; this.classList.remove('bg-green-600', 'hover:bg-green-700'); this.classList.add('bg-emerald-500', 'hover:bg-emerald-600'); setTimeout(() => { this.textContent = 'Copy'; this.classList.remove('bg-orange-500', 'hover:bg-orange-600'); this.classList.add('bg-green-600', 'hover:bg-green-700'); }, 1500); })"
+					class="min-w-20 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded text-sm transition-colors"
+				>
+					Copy
+				</button>
+			</div>
+			<pre id="pasteContent" class="p-4 font-mono text-sm whitespace-pre-wrap overflow-auto">{ content }</pre>
 		</div>
 	}
 }
