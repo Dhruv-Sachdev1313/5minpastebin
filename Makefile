@@ -1,13 +1,14 @@
 # Simple Makefile for a Go project
+TEMPL_VERSION := $(shell go list -m -f '{{.Version}}' github.com/a-h/templ)
 
 # Build the application
 all: build test
 templ-install:
-	@if ! command -v templ > /dev/null; then \
-		read -p "Go's 'templ' is not installed on your machine. Do you want to install it? [Y/n] " choice; \
+	@if ! command -v templ > /dev/null || [ "$$(templ version 2>/dev/null)" != "$(TEMPL_VERSION)" ]; then \
+		read -p "Go's 'templ' $(TEMPL_VERSION) is not installed on your machine. Do you want to install it? [Y/n] " choice; \
 		if [ "$$choice" != "n" ] && [ "$$choice" != "N" ]; then \
-			go install github.com/a-h/templ/cmd/templ@latest; \
-			if [ ! -x "$$(command -v templ)" ]; then \
+			go install github.com/a-h/templ/cmd/templ@$(TEMPL_VERSION); \
+			if ! command -v templ > /dev/null || [ "$$(templ version 2>/dev/null)" != "$(TEMPL_VERSION)" ]; then \
 				echo "templ installation failed. Exiting..."; \
 				exit 1; \
 			fi; \
