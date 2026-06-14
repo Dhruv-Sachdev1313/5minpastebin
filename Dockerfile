@@ -1,4 +1,4 @@
-FROM golang:1.24-bookworm AS build
+FROM golang:1.25-bookworm AS build
 RUN apt-get update && apt-get install -y curl
 
 WORKDIR /app
